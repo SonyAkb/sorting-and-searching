@@ -1,16 +1,16 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <string>
 using namespace std;
 
-void creature_mas_rand(vector<int>& ptr); //создаю массив через датчик случайных чисел
-void creature_mas_hands(vector<int>& ptr); //создание массива с клавиатуры
-void print(vector<int>& ptr); //вывод текущего массива
-void Quick_Sort(vector<int>& vect, int start_Index, int pivot_Index); //быстрая сортировка
-int linear_search(vector<int>& vect, int element); //линейный поиск
-int Binary_search(vector<int>& vect, int key_el); //бинарный поиск
-int Interpolation_search(vector<int>& vect, int key_el); //интерполяционный поиск
-int Direct_search(string str, string key_sub_str); //прямой поиск подстроки в строке
+void creature_mas_rand(vector<int>& ptr); //СЃРѕР·РґР°СЋ РјР°СЃСЃРёРІ С‡РµСЂРµР· РґР°С‚С‡РёРє СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
+void creature_mas_hands(vector<int>& ptr); //СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+void print(vector<int>& ptr); //РІС‹РІРѕРґ С‚РµРєСѓС‰РµРіРѕ РјР°СЃСЃРёРІР°
+void Quick_Sort(vector<int>& vect, int start_Index, int pivot_Index); //Р±С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°
+int linear_search(vector<int>& vect, int element); //Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє
+int Binary_search(vector<int>& vect, int key_el); //Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
+int Interpolation_search(vector<int>& vect, int key_el); //РёРЅС‚РµСЂРїРѕР»СЏС†РёРѕРЅРЅС‹Р№ РїРѕРёСЃРє
+int Direct_search(string str, string key_sub_str); //РїСЂСЏРјРѕР№ РїРѕРёСЃРє РїРѕРґСЃС‚СЂРѕРєРё РІ СЃС‚СЂРѕРєРµ
 
 int main() {
     system("chcp 1251 > Null");
@@ -20,12 +20,12 @@ int main() {
     vector<int> vect;
     string all_str, sub_str;
 
-    do { //выбор поиска
-        cout << "Каким способом вы хотите совершить поиск? " << endl;
-        cout << "1 - Линейный поиск" << endl;
-        cout << "2 - Бинарный поиск" << endl;
-        cout << "3 - Интерполяционный поиск" << endl;
-        cout << "4 - Прямой поиск подстроки" << endl;
+    do { //РІС‹Р±РѕСЂ РїРѕРёСЃРєР°
+        cout << "РљР°РєРёРј СЃРїРѕСЃРѕР±РѕРј РІС‹ С…РѕС‚РёС‚Рµ СЃРѕРІРµСЂС€РёС‚СЊ РїРѕРёСЃРє? " << endl;
+        cout << "1 - Р›РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє" << endl;
+        cout << "2 - Р‘РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє" << endl;
+        cout << "3 - РРЅС‚РµСЂРїРѕР»СЏС†РёРѕРЅРЅС‹Р№ РїРѕРёСЃРє" << endl;
+        cout << "4 - РџСЂСЏРјРѕР№ РїРѕРёСЃРє РїРѕРґСЃС‚СЂРѕРєРё" << endl;
         cin >> choice_1;
     } while (choice_1 < 1 || choice_1 > 4);
 
@@ -33,167 +33,167 @@ int main() {
 
     if (choice_1 != 4) {
         do {
-            cout << "Введите размер массива (размер больше 0): ";
-            cin >> mas_size; //ввод размера массива
+            cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° (СЂР°Р·РјРµСЂ Р±РѕР»СЊС€Рµ 0): ";
+            cin >> mas_size; //РІРІРѕРґ СЂР°Р·РјРµСЂР° РјР°СЃСЃРёРІР°
         } while (mas_size < 1);
 
-        vect.reserve(mas_size); //резервирую память
+        vect.reserve(mas_size); //СЂРµР·РµСЂРІРёСЂСѓСЋ РїР°РјСЏС‚СЊ
 
         do {
-            cout << endl << "Каким способом вы хотите создать массив? " << endl;
-            cout << "1 - Ввести ручками" << endl;
-            cout << "2 - Создать случайно" << endl;
+            cout << endl << "РљР°РєРёРј СЃРїРѕСЃРѕР±РѕРј РІС‹ С…РѕС‚РёС‚Рµ СЃРѕР·РґР°С‚СЊ РјР°СЃСЃРёРІ? " << endl;
+            cout << "1 - Р’РІРµСЃС‚Рё СЂСѓС‡РєР°РјРё" << endl;
+            cout << "2 - РЎРѕР·РґР°С‚СЊ СЃР»СѓС‡Р°Р№РЅРѕ" << endl;
             cin >> choice_2;
         } while (choice_2 < 1 || choice_2 > 2);
 
-        switch (choice_2) { //выбор способа создания массива
+        switch (choice_2) { //РІС‹Р±РѕСЂ СЃРїРѕСЃРѕР±Р° СЃРѕР·РґР°РЅРёСЏ РјР°СЃСЃРёРІР°
         case 1: {
             creature_mas_hands(vect);
             break;
         }
         default: {
-            creature_mas_rand(vect); //создание массива случайно
+            creature_mas_rand(vect); //СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР° СЃР»СѓС‡Р°Р№РЅРѕ
             break;
         }
         }
 
-        if (choice_1 == 2 || choice_1 == 3) { //если надо отсортировать
+        if (choice_1 == 2 || choice_1 == 3) { //РµСЃР»Рё РЅР°РґРѕ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ
             Quick_Sort(vect, 0, vect.size() - 1);
         }
         
         print(vect);
-        cout << "Введите элемент, который необходимо найти: ";
+        cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚, РєРѕС‚РѕСЂС‹Р№ РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°Р№С‚Рё: ";
         cin >> desired_element;
     }
     else {
-        cout << "Введите строку: ";
+        cout << "Р’РІРµРґРёС‚Рµ СЃС‚СЂРѕРєСѓ: ";
         cin.ignore();
         getline(cin, all_str);
-        cout << "Введите ПОДстроку, которую необходимо найти: ";
+        cout << "Р’РІРµРґРёС‚Рµ РџРћР”СЃС‚СЂРѕРєСѓ, РєРѕС‚РѕСЂСѓСЋ РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°Р№С‚Рё: ";
         getline(cin, sub_str);
     }
     
-    if (choice_1 == 1) { //линейный поиск
+    if (choice_1 == 1) { //Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє
         index_find = linear_search(vect, desired_element);
     }
-    else if (choice_1 == 2) { //бинарный поиск
+    else if (choice_1 == 2) { //Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
         index_find = Binary_search(vect, desired_element);
     }
-    else if (choice_1 == 3) { //интерполяционный поиск
+    else if (choice_1 == 3) { //РёРЅС‚РµСЂРїРѕР»СЏС†РёРѕРЅРЅС‹Р№ РїРѕРёСЃРє
         index_find = Interpolation_search(vect, desired_element);
     }
-    else { //прямой поиск подстроки
+    else { //РїСЂСЏРјРѕР№ РїРѕРёСЃРє РїРѕРґСЃС‚СЂРѕРєРё
         index_find = Direct_search(all_str, sub_str);
     }
     
     if (index_find == -1) {
-        cout << endl << "Такого элемента нет!";
+        cout << endl << "РўР°РєРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµС‚!";
     }
     else {
-        cout << endl << "Номер элемента - " << index_find + 1;
+        cout << endl << "РќРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° - " << index_find + 1;
     }
 
     return 0;
 }
 
-void creature_mas_rand(vector<int>& ptr) { //создаю массив через датчик случайных чисел
+void creature_mas_rand(vector<int>& ptr) { //СЃРѕР·РґР°СЋ РјР°СЃСЃРёРІ С‡РµСЂРµР· РґР°С‚С‡РёРє СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
     for (int i = 0; i < ptr.capacity(); i++) {
-        ptr.push_back(rand() % 1000 + 1); //случайное число от 1 до 1000
+        ptr.push_back(rand() % 1000 + 1); //СЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 1000
     }
 }
 
-void creature_mas_hands(vector<int>& ptr) { //создание массива с клавиатуры
+void creature_mas_hands(vector<int>& ptr) { //СЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
     cout << endl;
     int pointer;
     for (int i = 0; i < ptr.capacity(); i++) {
-        cout << "Введите элемент " << i + 1 << ": ";
+        cout << "Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚ " << i + 1 << ": ";
         cin >> pointer;
         ptr.push_back(pointer);
     }
 }
 
-void print(vector<int>& ptr) { //вывод текущего массива
-    cout << endl << "Текущий массив:" << endl;
-    for (int i = 0; i < ptr.size(); i++) { //прохожу по массиву
+void print(vector<int>& ptr) { //РІС‹РІРѕРґ С‚РµРєСѓС‰РµРіРѕ РјР°СЃСЃРёРІР°
+    cout << endl << "РўРµРєСѓС‰РёР№ РјР°СЃСЃРёРІ:" << endl;
+    for (int i = 0; i < ptr.size(); i++) { //РїСЂРѕС…РѕР¶Сѓ РїРѕ РјР°СЃСЃРёРІСѓ
         cout << ptr[i] << ' ';
     }
     cout << endl << endl;
 }
 
-void Quick_Sort(vector<int>& vect, int start_Index, int pivot_Index) { //быстрая сортировка
+void Quick_Sort(vector<int>& vect, int start_Index, int pivot_Index) { //Р±С‹СЃС‚СЂР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР°
     if (start_Index < pivot_Index) {
         int current_Index = start_Index;
-        for (int i = current_Index; i < pivot_Index; i++) { //иду до опорного элемента
+        for (int i = current_Index; i < pivot_Index; i++) { //РёРґСѓ РґРѕ РѕРїРѕСЂРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
             if (vect[i] <= vect[pivot_Index]) {
-                swap(vect[i], vect[current_Index++]); //меняю элементы местами
+                swap(vect[i], vect[current_Index++]); //РјРµРЅСЏСЋ СЌР»РµРјРµРЅС‚С‹ РјРµСЃС‚Р°РјРё
             }
         }
-        swap(vect[current_Index], vect[pivot_Index]); //меняю элементы местами
+        swap(vect[current_Index], vect[pivot_Index]); //РјРµРЅСЏСЋ СЌР»РµРјРµРЅС‚С‹ РјРµСЃС‚Р°РјРё
         Quick_Sort(vect, start_Index, current_Index - 1);
         Quick_Sort(vect, current_Index + 1, pivot_Index);
     }
 }
 
-int linear_search(vector<int>& vect, int element) { //линейный поиск
+int linear_search(vector<int>& vect, int element) { //Р»РёРЅРµР№РЅС‹Р№ РїРѕРёСЃРє
     int index_el = -1;
     for (int i = 0; i < vect.size() && index_el == -1; i++) {
-        if (vect[i] == element) { //если элемент совпал
+        if (vect[i] == element) { //РµСЃР»Рё СЌР»РµРјРµРЅС‚ СЃРѕРІРїР°Р»
             index_el = i;
         }
     }
     return index_el;
 }
 
-int Binary_search(vector<int>& vect, int key_el) { //бинарный поиск
+int Binary_search(vector<int>& vect, int key_el) { //Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
     int index_el = -1, middle_index, the_left_border = 0, the_right_border = vect.size() - 1;
     while (the_left_border <= the_right_border && index_el == -1) {
-        middle_index = (the_left_border + the_right_border) / 2; //средний элемент относительно текущих границ
-        if (vect[middle_index] == key_el) { //если элемент совпал
+        middle_index = (the_left_border + the_right_border) / 2; //СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚РµРєСѓС‰РёС… РіСЂР°РЅРёС†
+        if (vect[middle_index] == key_el) { //РµСЃР»Рё СЌР»РµРјРµРЅС‚ СЃРѕРІРїР°Р»
             index_el = middle_index;
         }
         else {
-            if (vect[middle_index] < key_el) { //если средний элемент меньше ключевого
-                the_left_border = middle_index + 1; //меняю левую границу
+            if (vect[middle_index] < key_el) { //РµСЃР»Рё СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РјРµРЅСЊС€Рµ РєР»СЋС‡РµРІРѕРіРѕ
+                the_left_border = middle_index + 1; //РјРµРЅСЏСЋ Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ
             }
-            else { //если средний элемент больше ключевого
-                the_right_border = middle_index - 1; //меняю правую границу
+            else { //РµСЃР»Рё СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ Р±РѕР»СЊС€Рµ РєР»СЋС‡РµРІРѕРіРѕ
+                the_right_border = middle_index - 1; //РјРµРЅСЏСЋ РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ
             }
         }
     }
     return  index_el;
 }
 
-int Interpolation_search(vector<int>& vect, int key_el) { //интерполяционный поиск
+int Interpolation_search(vector<int>& vect, int key_el) { //РёРЅС‚РµСЂРїРѕР»СЏС†РёРѕРЅРЅС‹Р№ РїРѕРёСЃРє
     int index_el = -1, middle_index, the_left_border = 0, the_right_border = vect.size() - 1;
     while (the_left_border <= the_right_border && index_el == -1) {
         middle_index = the_left_border + (((key_el - vect[the_left_border]) * (the_right_border - the_left_border)) /
-            (vect[the_right_border] - vect[the_left_border])); //средний элемент относительно текущих границ
-        if (vect[middle_index] == key_el) { //если элемент совпал
+            (vect[the_right_border] - vect[the_left_border])); //СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С‚РµРєСѓС‰РёС… РіСЂР°РЅРёС†
+        if (vect[middle_index] == key_el) { //РµСЃР»Рё СЌР»РµРјРµРЅС‚ СЃРѕРІРїР°Р»
             index_el = middle_index;
         }
         else {
-            if (vect[middle_index] < key_el) { //если средний элемент меньше ключевого
-                the_left_border = middle_index + 1; //меняю левую границу
+            if (vect[middle_index] < key_el) { //РµСЃР»Рё СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ РјРµРЅСЊС€Рµ РєР»СЋС‡РµРІРѕРіРѕ
+                the_left_border = middle_index + 1; //РјРµРЅСЏСЋ Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ
             }
-            else { //если средний элемент больше ключевого
-                the_right_border = middle_index - 1; //меняю правую границу
+            else { //РµСЃР»Рё СЃСЂРµРґРЅРёР№ СЌР»РµРјРµРЅС‚ Р±РѕР»СЊС€Рµ РєР»СЋС‡РµРІРѕРіРѕ
+                the_right_border = middle_index - 1; //РјРµРЅСЏСЋ РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ
             }
         }
     }
     return  index_el;
 }
 
-int Direct_search(string str, string key_sub_str) { //прямой поиск подстроки в строке
+int Direct_search(string str, string key_sub_str) { //РїСЂСЏРјРѕР№ РїРѕРёСЃРє РїРѕРґСЃС‚СЂРѕРєРё РІ СЃС‚СЂРѕРєРµ
     int index_el = -1, len_sub_str = key_sub_str.size();
-    for (int i = 0; i < str.size() - len_sub_str && index_el == -1; i++) { //иду по строке
-        bool found = true; //статус совпадения подстроки и строки
-        int j = 0; //длина совпадающей части
-        while (j < len_sub_str && found) { //иду по ПОДстроке
-            found = (str[i + j] == key_sub_str[j]); //совпадение символа строки и ПОДстроки
-            j++; //длина совпадающей части
+    for (int i = 0; i < str.size() - len_sub_str && index_el == -1; i++) { //РёРґСѓ РїРѕ СЃС‚СЂРѕРєРµ
+        bool found = true; //СЃС‚Р°С‚СѓСЃ СЃРѕРІРїР°РґРµРЅРёСЏ РїРѕРґСЃС‚СЂРѕРєРё Рё СЃС‚СЂРѕРєРё
+        int j = 0; //РґР»РёРЅР° СЃРѕРІРїР°РґР°СЋС‰РµР№ С‡Р°СЃС‚Рё
+        while (j < len_sub_str && found) { //РёРґСѓ РїРѕ РџРћР”СЃС‚СЂРѕРєРµ
+            found = (str[i + j] == key_sub_str[j]); //СЃРѕРІРїР°РґРµРЅРёРµ СЃРёРјРІРѕР»Р° СЃС‚СЂРѕРєРё Рё РџРћР”СЃС‚СЂРѕРєРё
+            j++; //РґР»РёРЅР° СЃРѕРІРїР°РґР°СЋС‰РµР№ С‡Р°СЃС‚Рё
         }
-        if (found) { //если все элементы совпали
-            index_el = i; //индекс первого элемента
+        if (found) { //РµСЃР»Рё РІСЃРµ СЌР»РµРјРµРЅС‚С‹ СЃРѕРІРїР°Р»Рё
+            index_el = i; //РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
         }
     }
     return index_el;
